@@ -1,0 +1,5 @@
+-c ../src_(Demo)/ -o obj/cpp_{_sPlatform}_{_sOpt}/cwObj/ -I obj/cw/ -std=c++11 -s EXPORT_ALL=1
+ >
+-o obj/cpp_{_sPlatform}_{_sOpt}/ -#To _out/{_sPlatform}_{_sOpt}/Lib.js -s EXPORT_ALL=1  -s SIDE_MODULE=1
+>
+-#Run

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <windows.h>
+#include "dllHeader.h"
+
+int main()
+{
+    HINSTANCE hDLL = LoadLibrary("SideModule.dll");
+
+    if (hDLL == NULL) {
+        std::cout << "Failed to load library.\n";
+    }
+    else {
+        CREATE_MATH pEntryFunction = (CREATE_MATH)GetProcAddress(hDLL,"CreateMathObject");
+        //ImyMath* pMath = pEntryFunction();
+        MyMath* pMath = (MyMath*)pEntryFunction();
+		
+		
+        if (pMath) {
+            std::cout << "10+10=" << pMath->Add(10, 10) << std::endl;
+            std::cout << "50-10=" << pMath->Subtract(50, 10) << std::endl;
+            std::cout << "Test:40-10-10=" << pMath->Test(40, 10) << std::endl;
+            std::cout << "40-10=" << pMath->nVal << std::endl;
+        }
+        FreeLibrary(hDLL);
+    }
+    std::cin.get();
+    return 0;
+}

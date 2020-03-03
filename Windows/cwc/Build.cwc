@@ -1,0 +1,24 @@
+ -{_wLib_GZE}= VLiance/GZE/v1.0
+ > 
+;-c ../SideModule/ -o obj/SideModule/cpp_{_sPlatform}_{_sOpt}/
+;-{vIncl} -{vFlag}
+>
+;Generate SideModule
+-cw -L ../SideModule_(Side)/SideEntry.cw -o obj/SideModule/cw/ -#Obj=>{aCwObj} |
+ >
+-c {aCwObj_Side} -o obj/SideModule/cpp_{_sPlatform}_{_sOpt}/cwObj/ -I obj/SideModule/cw/ -std=c++11 -I ../SideModule_(Side)/
+ >
+;Generate Dynamic Lib
+-o obj/SideModule/cpp_{_sPlatform}_{_sOpt}/ -#To _out/{_sPlatform}_{_sOpt}/SideModule.{_sDynamic}
+>
+;Generate MainModule
+-L ../MainModule_(Demo)/ -e ../MainModule_(Demo)/MainEntry.cw -o obj/cw/ -#Obj=>{aCwObj} |
+ >
+-c {aCwObj} -o obj/MainModule/cpp_{_sPlatform}_{_sOpt}/cwObj/ -I obj/cw/ -std=c++11 -I ../MainModule_(Demo)/
+ >
+-#Build {_wLib_GZE} -#To obj/MainModule/cpp_{_sPlatform}_{_sOpt}/GZE/LibGZE/ -I obj/cw/
+>
+-o obj/MainModule/cpp_{_sPlatform}_{_sOpt}/ -#To _out/{_sPlatform}_{_sOpt}/App.*
+>
+
+-#Run

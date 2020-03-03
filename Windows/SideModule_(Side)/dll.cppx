@@ -1,0 +1,22 @@
+#define MYDLL_EXPORTS
+#include "../MainModule_(Demo)/dllHeader.h"
+
+// Create Object
+DLLCALL ImyMath* __cdecl CreateMathObject() {
+    return new MyMath();
+}
+
+int MyMath::Add(int a, int b) {
+nVal = 66;
+    return a+b;
+}
+
+int MyMath::Subtract(int a, int b) {
+nVal = 68;
+    return a-b;	
+}
+
+
+int MyMath::Test(int a, int b) {
+    return a-b-b-b;
+}
