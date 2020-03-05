@@ -1,7 +1,7 @@
 package {
 import GZ.EntryPoint;
 
-import GZ.Base.Thread.ThreadExt;
+//import GZ.Base.Thread.ThreadExt;
 
 
 
@@ -13,12 +13,15 @@ import GZ.Base.Thread.ThreadExt;
 	//extern "C" void fTestExtFunc();
 	typedef int (*Func_fTestExtFunc)();
 	
+	
+	gzPtrFuncRPAny fRegister = 0;
 </cpp>
 
 
-public class SideEntry extends EntryPoint {
+//public class SideEntry extends EntryPoint {
+public class SideEntry {
 
-	public var oThread: ThreadExt; //Object Variable of our Class
+	//public var oThread: ThreadExt; //Object Variable of our Class
 
 	
 	public function SideEntry():Int {

@@ -6,7 +6,7 @@
 ;Generate SideModule
 -cw -L ../SideModule_(Side)/SideEntry.cw -o obj/SideModule/cw/ -#Obj=>{aCwObj} |
  >
--c {aCwObj_Side} -o obj/SideModule/cpp_{_sPlatform}_{_sOpt}/cwObj/ -I obj/SideModule/cw/ -std=c++11 -I ../SideModule_(Side)/
+-c {aCwObj_Side} -o obj/SideModule/cpp_{_sPlatform}_{_sOpt}/cwObj/ -I obj/SideModule/cw/ -std=c++11 -I ../SideModule_(Side)/ -DD_RunTimeLink_Lib_GZ
  >
 ;Generate Dynamic Lib
 -o obj/SideModule/cpp_{_sPlatform}_{_sOpt}/ -#To _out/{_sPlatform}_{_sOpt}/SideModule.{_sDynamic}
